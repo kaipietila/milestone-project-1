@@ -1,0 +1,58 @@
+#players enter numbers that represent positions in a grid to get 3 in a row, tic! tac! toe! GO!
+def game():
+    x=True
+    inputlist1=[]
+    inputlist2=[]
+    moves=0
+    winning_condition = False
+    while winning_condition != True:
+        if x==True and moves<9:
+            input_player1 = int(input("Player1: Where do you wanna place your mark?"))
+            if input_player1 in inputlist1 or input_player1 in inputlist2:
+                print("this square is already chosen, pick again!")
+                continue
+            else:
+                inputlist1.append(input_player1) #store the input and display the grid
+                inputlist1.sort()
+                if winning_combos(inputlist1)==True:
+                    winning_condition=True
+                moves+=1
+                x= False
+                
+                
+        elif x==False and moves<9:
+            input_player2 = int(input("Player 2: Where do you wanna place your mark?"))
+            if input_player2 in inputlist1 or input_player2 in inputlist2:
+                print("this square is already chosen, pick again!")
+                continue
+            else:
+                inputlist2.append(input_player2)
+                inputlist2.sort()
+                if winning_combos(inputlist2)==True:
+                    winning_condition=True
+                else:
+                    print("no win")
+                moves+=1
+                x= True
+                
+            
+        else: 
+            print("It's a tie game. No one wins. Better luck next time!")
+            print(inputlist1)
+            print(inputlist2)
+            break
+    else:
+        print("You got 3 in a row, you win!!")
+        
+def print_grid(a):
+    #printing out the grid to show X and O
+    pass
+    
+        
+def winning_combos(a):
+    #cheking all possible winning conditions
+    winlist=[[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
+    if all(i in a for i in winlist):
+        return True
+    else:
+        return False
