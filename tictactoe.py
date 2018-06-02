@@ -43,7 +43,7 @@ def play_game():
             break
     else:
         print_grid(results_list)
-        print("You got 3 in a row, you win!!")
+        print("YOU WIN! You got 3 in a row!")
         
 def print_grid(results_list):
     print("{0} | {1} | {2}\n__|___|___\n{3} | {4} | {5}\n__|___|___\n{6} | {7} | {8}".format(results_list[0],results_list[1],results_list[2],results_list[3],results_list[4],results_list[5],results_list[6],results_list[7],results_list[8]))
@@ -53,18 +53,18 @@ def print_grid(results_list):
 def to_win(inputlist):
     width = 3
     a = False
-    # if you win by 3 in a column the consition is always position(i) + width
-    # if you win by 3 in a diagonal line the condition is position + width + 1
-    # if you win by 3 in a row the condition is always position + 1
-    # if you win by 3 in a diagonal line the condition is position + width - 1
+    # if you win by 3 in a column the consition is always position(i) + width also requires i to 1,2 or 3
+    # if you win by 3 in a diagonal line the condition is position + width + 1 requires i to be 1
+    # if you win by 3 in a row the condition is always position + 1 requires i to be 1,4 or 7
+    # if you win by 3 in a diagonal line the condition is position + width - 1 requires i to be 3
     for i in inputlist:
-        if (i+width) in inputlist and (i+width*2) in inputlist:
+        if i in [1,2,3] and i+width in inputlist and i+width*2 in inputlist:
             a = True 
-        elif ((i+width+1) in inputlist) and ((i+(width*2)+2) in inputlist):
+        elif i==1 and i+width+1 in inputlist and i+width*2+2 in inputlist:
             a = True  
-        elif (i+width-1) in inputlist and (i+(width*2)-2) in inputlist:
+        elif i==3 and i+width-1 in inputlist and i+width*2-2 in inputlist:
             a = True 
-        elif (i+1) in inputlist and (i+2) in inputlist:
+        elif i in [1,4,7] and i+1 in inputlist and i+2 in inputlist:
             a = True 
     if a:
         return True
