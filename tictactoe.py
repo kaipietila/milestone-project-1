@@ -13,6 +13,9 @@ def play_game():
             if input_player1 in inputlist1 or input_player1 in inputlist2:
                 print("This square is already chosen, pick again!")
                 continue
+            elif input_player1 >9:
+                print("Only numbers between 1-9 allowed!!!")
+                continue
             else:
                 inputlist1.append(input_player1) #store the input and display the grid
                 inputlist1.sort()
@@ -27,6 +30,9 @@ def play_game():
             input_player2 = int(input("Player 2: Where do you wanna place your mark? "))
             if input_player2 in inputlist1 or input_player2 in inputlist2:
                 print("This square is already chosen, pick again!")
+                continue
+            elif input_player2 >9:
+                print("Only numbers between 1-9 allowed!!!")
                 continue
             else:
                 inputlist2.append(input_player2)
