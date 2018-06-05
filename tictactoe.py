@@ -9,37 +9,29 @@ def play_game():
     while winning_condition != True:
         print_grid(results_list)
         if player_one_turn and moves<9:
-            input_player1 = int(input("Player1: Where do you wanna place your mark? "))
-            if input_player1 in inputlist1 or input_player1 in inputlist2:
-                print("This square is already chosen, pick again!")
-                continue
-            elif input_player1 > 9 or input_player1 == 0:
-                print("Only numbers between 1-9 allowed!!!")
+            player_input = int(input("Player1: Where do you wanna place your mark? "))
+            if check_invalid_input(player_input,inputlist1,inputlist2):
                 continue
             else:
-                inputlist1.append(input_player1) #store the input and display the grid
+                inputlist1.append(player_input) #store the input and display the grid
                 inputlist1.sort()
-                if to_win(inputlist1)==True:
-                    winning_condition=True
-                results_list[input_player1-1]= 'X'
+                if to_win(inputlist1):
+                    winning_condition = True
+                results_list[player_input-1]= 'X'
                 moves+=1
                 player_one_turn= False
                 
                 
         elif not player_one_turn and moves<9:
-            input_player2 = int(input("Player 2: Where do you wanna place your mark? "))
-            if input_player2 in inputlist1 or input_player2 in inputlist2:
-                print("This square is already chosen, pick again!")
-                continue
-            elif input_player2 > 9 or input_player2 < 1:
-                print("Only numbers between 1-9 allowed!!!")
+            player_input = int(input("Player 2: Where do you wanna place your mark? "))
+            if check_invalid_input(player_input,inputlist1,inputlist2):
                 continue
             else:
-                inputlist2.append(input_player2)
+                inputlist2.append(player_input)
                 inputlist2.sort()
-                if to_win(inputlist2) == True:
+                if to_win(inputlist2):
                     winning_condition = True
-                results_list[input_player2-1]= 'O'
+                results_list[player_input-1]= 'O'
                 moves+=1
                 player_one_turn= True
                 
@@ -51,6 +43,17 @@ def play_game():
         print_grid(results_list)
         print("YOU WIN! You got 3 in a row!")
         play_again()
+
+
+def check_invalid_input(player_input,inputlist1,inputlist2):
+    if player_input in inputlist1 or player_input in inputlist2:
+        print("This square is already chosen, pick again!")
+        return True
+    elif player_input < 1 or player_input > 9:
+        print("Only numbers between 1-9 allowed!!!")
+        return True
+    
+
         
 def print_grid(results_list):
     print("{0} | {1} | {2}\n__|___|___\n{3} | {4} | {5}\n__|___|___\n{6} | {7} | {8}".format(results_list[0],results_list[1],results_list[2],results_list[3],results_list[4],results_list[5],results_list[6],results_list[7],results_list[8]))
