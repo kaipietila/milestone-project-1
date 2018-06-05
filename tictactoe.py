@@ -13,7 +13,7 @@ def play_game():
             if input_player1 in inputlist1 or input_player1 in inputlist2:
                 print("This square is already chosen, pick again!")
                 continue
-            elif input_player1 >9:
+            elif input_player1 > 9 or input_player1 == 0:
                 print("Only numbers between 1-9 allowed!!!")
                 continue
             else:
@@ -31,7 +31,7 @@ def play_game():
             if input_player2 in inputlist1 or input_player2 in inputlist2:
                 print("This square is already chosen, pick again!")
                 continue
-            elif input_player2 >9:
+            elif input_player2 > 9 or input_player2 < 1:
                 print("Only numbers between 1-9 allowed!!!")
                 continue
             else:
