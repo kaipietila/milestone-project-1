@@ -56,7 +56,7 @@ def check_invalid_input(player_input,inputlist1,inputlist2):
 
         
 def print_grid(results_list):
-    print("{0} | {1} | {2}\n__|___|___\n{3} | {4} | {5}\n__|___|___\n{6} | {7} | {8}".format(results_list[0],results_list[1],results_list[2],results_list[3],results_list[4],results_list[5],results_list[6],results_list[7],results_list[8]))
+    print(" {0} | {1} | {2}\n___|___|___\n {3} | {4} | {5}\n___|___|___\n {6} | {7} | {8}".format(results_list[0],results_list[1],results_list[2],results_list[3],results_list[4],results_list[5],results_list[6],results_list[7],results_list[8]))
     #printing out the grid to show X and O
         
 
@@ -89,7 +89,7 @@ def game_rules():
     #rules of the game are written here
     print("Welcome to tic tac toe, go! Your aim is to get 3 in a row. Player 1 will use the X marks and player 2 will be O.")
     print("You will assign which square you want to put your mark in by typing in a number between 1-9 in the following order:")
-    print("1 | 2 | 3\n__|___|___\n4 | 5 | 6\n__|___|___\n7 | 8 | 9")
+    print(" 1 | 2 | 3\n___|___|___\n 4 | 5 | 6\n___|___|___\n 7 | 8 | 9")
     
 game_rules()
 play_game()
