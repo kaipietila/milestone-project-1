@@ -91,6 +91,8 @@ def game_rules():
     print("You will assign which square you want to put your mark in by typing in a number between 1-9 in the following order:")
     print(" 1 | 2 | 3\n___|___|___\n 4 | 5 | 6\n___|___|___\n 7 | 8 | 9")
     
-game_rules()
-play_game()
+
+if __name__ == "__main__":
+    game_rules()
+    play_game()
 
