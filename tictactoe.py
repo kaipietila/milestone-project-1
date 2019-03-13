@@ -52,6 +52,8 @@ def check_invalid_input(player_input,inputlist1,inputlist2):
     elif player_input < 1 or player_input > 9:
         print("Only numbers between 1-9 allowed!!!")
         return True
+    else:
+        return False
     
 
         
@@ -78,6 +80,8 @@ def to_win(inputlist):
             a = True 
     if a:
         return True
+    else:
+        return False
         
 def play_again():
     re_play_question= input("Do you want to play again? Y/N :")
